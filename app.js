@@ -4,9 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var http = require('http');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var movie = require('./routes/movie');
 
 var app = express();
 
@@ -56,5 +59,10 @@ app.use(function(err, req, res, next) {
   });
 });
 
+
+app.get('/movie/add', movie.movieAdd);
+app.post('/movie/add', movie.doMovieAdd);
+app.get('/movie/:name', movie.movieAdd);
+app.get('/movie/json/:name', movie.movieJSON);
 
 module.exports = app;

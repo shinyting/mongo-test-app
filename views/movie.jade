@@ -1,0 +1,11 @@
+extends layout
+block content
+	div.container-fluid
+		div.row-fluid
+			div.row
+				form
+					fieldset
+						legend=label
+						div.col-xs-10
+							textarea.row(id="c_editor" name="c_editor" rows="20")
+						button.btn.btn-primary.col-xs-2(id="c_save" type="button") 保存
