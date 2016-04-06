@@ -15,14 +15,16 @@ exports.movieAdd = function (req, res) {
 			movie: false
 		});
 	}
-};
+}
+
 exports.doMovieAdd = function (req, res) {
 	res.send({
 		'success': true
 	});
-};
+}
+
 exports.movieJSON = function (req, res) {
 	res.send({
 		'success': true
 	});
-};
+}

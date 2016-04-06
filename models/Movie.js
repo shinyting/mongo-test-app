@@ -1,4 +1,4 @@
-var mongodb = require('./mongodb');
+var mongodb = require('../db');
 var Schema = mongodb.mongoose.Schema;
 var MovieSchema = new Schema({
 	name: String,
