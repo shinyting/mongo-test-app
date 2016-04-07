@@ -1,5 +1,8 @@
 var Movie = require('../models/Movie.js');
 
+// var express = require('express');
+// var router = express.Router();
+
 exports.movieAdd = function (req, res) {
 	if (req.params.name) {
 		return res.render('movie', {
@@ -26,3 +29,5 @@ exports.movieJSON = function (req, res) {
 		'success': true
 	});
 };
+
+// module.exports = router;
