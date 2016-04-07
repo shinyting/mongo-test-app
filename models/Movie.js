@@ -1,4 +1,4 @@
-var mongodb = require('../db');
+// var mongodb = require('../db');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var MovieSchema = new Schema({
