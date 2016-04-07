@@ -1,3 +1,5 @@
+require('./db.js');
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -10,6 +12,7 @@ var http = require('http');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var movie = require('./routes/movie');
+var movie2 = require('./routes/movie2');
 
 var app = express();
 
@@ -28,6 +31,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 // app.use('/movie', movie);
+
+app.use('/movie', movie2);
+
+app.get('/movie/add', movie.movieAdd);
+app.post('/movie/add', movie.doMovieAdd);
+app.get('/movie/:name', movie.movieAdd);
+app.get('/movie/json/:name', movie.movieJSON);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,10 +71,5 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
-app.get('/movie/add', movie.movieAdd);
-app.post('/movie/add', movie.doMovieAdd);
-app.get('/movie/:name', movie.movieAdd);
-app.get('/movie/json/:name', movie.movieJSON);
 
 module.exports = app;
