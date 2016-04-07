@@ -4,7 +4,8 @@ var User = require('./models/user')
 
 var user = new User();
 
-user.name = 'zhangting';
+user.name = 'zhangtinglll';
+user.passwd = '123456';
 
 console.dir(user)
 

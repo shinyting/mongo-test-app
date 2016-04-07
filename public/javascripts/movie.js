@@ -12,7 +12,7 @@ $(function () {
 	var render_event_form = function () {
 		$('#c_save').on('click', function (event) {
 			var data = {};
-			data['content'] = mdata;
+			data = mdata;
 			$.ajax({
 				type: "POST",
 				url: "/movie/add",

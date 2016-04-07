@@ -2,9 +2,6 @@ var connectionString, db, mongoose, options;
 
 mongoose = require('mongoose');
 
-mongoose = require('mongoose');
-
-
 connectionString = 'mongodb://127.0.0.1:27017/mongo-test';
 
 options = {

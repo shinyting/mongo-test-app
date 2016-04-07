@@ -1,5 +1,6 @@
 var mongodb = require('../db');
-var Schema = mongodb.mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 var MovieSchema = new Schema({
 	name: String,
 	alias: [String],
@@ -20,7 +21,5 @@ var MovieSchema = new Schema({
 		create_date: {type: Date, default: Date.now}
 	}]
 });
-var Movie = mongodb.mongoose.model("Movie", MovieSchema);
-var MovieDAO = function () {
-	module.exports = new MovieDAO();
-}
+var Movie = mongoose.model("Movie", MovieSchema);
+module.exports = Movie;

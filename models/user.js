@@ -1,12 +1,13 @@
-var mongodb = require('./mongodb');
-var Schema = mongodb.mongoose.Schema;
+var mongodb = require('../db');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var MovieSchema = new Schema({
 	name: String,
   passwd:String
 });
 
-var Movie = mongodb.mongoose.model("Movie", MovieSchema);
+var User = mongoose.model("User", MovieSchema);
 
 
-module.exports = Movie
+module.exports = User;

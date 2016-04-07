@@ -29,7 +29,7 @@ var doMovieAdd_old = function (req, res) {
 }
 
 var doMovieAdd = function (req, res) {
-  var User = require('./models/user')
+  var User = require('../models/user');
 
   var user = new User();
 
