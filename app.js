@@ -1,3 +1,5 @@
+require('./db.js');
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon'); //网页图标模块
