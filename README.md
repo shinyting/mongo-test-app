@@ -7,3 +7,6 @@
 打开终端，执行mongod --dbpath 存放数据的文件路径  
 
 ###express中间件
+
+###mongoose
+首先使用命令行打开mongodb，然后在nodejs项目里执行node ./db.js连上数据库，
