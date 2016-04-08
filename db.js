@@ -2,7 +2,7 @@ var connectionString, db, mongoose, options;
 
 mongoose = require('mongoose');
 
-connectionString = 'mongodb://127.0.0.1:27017/mongo-test';
+connectionString = 'mongodb://127.0.0.1:27017/mongo-test-app';
 
 options = {
   db: {
