@@ -9,6 +9,9 @@ $(function () {
 		params.password = $('#exampleInputPassword').val();
 		$.post('/save', params, function (res) {
 			console.log(res);
+			if (res.msg == "success") {
+				window.location.href = "/data";
+			}
 		});
 	}
 

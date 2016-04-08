@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');//用于解析客户端请求的body中�
 var http = require('http'); //构建http服务器
 
 var routes = require('./routes/index');
+var datas = require('./routes/datas');
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/data', datas);
 
 app.use(function (req, res, next) {
 	var err = new Error('Not Found');

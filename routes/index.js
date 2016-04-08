@@ -11,7 +11,7 @@ var saveUser = function (req, res, next) {
 	user.save (function (err, user){
 		if (!err) {
 			res.send({
-				'success': true
+				'msg': 'success'
 			});
 		}
 	})
