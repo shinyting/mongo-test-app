@@ -2,7 +2,8 @@ extends layout
 block content
 	h1= title
 	p Welcome to #{title}
-	a(href="/data") 查看数据列表
+	p
+		a(href="/data") 查看数据列表
 	form
 		if !data
 			div.form-group
