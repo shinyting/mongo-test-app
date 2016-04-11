@@ -3,7 +3,6 @@ block content
 	h1=title
 	ul.list-unstyled
 		each item in data
-			li 
-				p #{item.name}
-				p #{item.telephone}
-				p #{item.email}
+			li
+				a(href="/data/" + item._id)
+					p #{item.name}

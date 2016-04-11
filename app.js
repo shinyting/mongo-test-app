@@ -10,6 +10,7 @@ var http = require('http'); //构建http服务器
 
 var routes = require('./routes/index');
 var datas = require('./routes/datas');
+var books = require('./routes/books');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/data', datas);
+app.use('/book', books);
 
 app.use(function (req, res, next) {
 	var err = new Error('Not Found');
