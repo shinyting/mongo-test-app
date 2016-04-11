@@ -23,12 +23,22 @@ $(function () {
 		params.email = $('#exampleInputEmail').val();
 		$.post('/data/update', {'id': dataId, 'params': params}, function (res) {
 			console.log(res);
-			// if (res.msg == "success") {
-			// 	window.location.href = "/data";
-			// }
+			if (res.msg == "success") {
+				window.location.href = "/data";
+			}
+		});
+	}
+
+	function removeData () {
+		var dataId =$('#detail-name').attr('data-id');
+		$.post('/data/remove', {'id': dataId}, function (res) {
+			if (res.msg == 'success') {
+				window.location.href = "/data";
+			}
 		});
 	}
 
 	$('#save-user').on('click', saveUser);
 	$('#update-data').on('click', updateData);
+	$('#removedata').on('click', removeData);
 });

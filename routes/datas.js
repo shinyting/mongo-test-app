@@ -40,10 +40,28 @@ var editData = function (req, res, next) {
 
 //更新
 var updateData = function (req, res, next) {
+	collection.update({'_id': ObjectId(req.body.id)}, {$set:req.body.params}, function (err, result) {
+		if (err) {
+			console.log('Error:' + err);
+			return;
+		}
+		else {
+			res.send({'msg': 'success'});
+		}
+	});
+}
+
+var removeData = function (req, res, next) {
 	console.log(req.body);
-	collection.update({'_id': ObjectId(req.body.id)}, {$set:req.body.params});
-	console.log(result);
-	res.send({'msg': 'success'});
+	collection.remove({'_id': ObjectId(req.body.id)}, function (err, result) {
+		if (err) {
+			console.log('Error:' + err);
+			return;
+		}
+		else {
+			res.send({'msg': 'success'});
+		}
+	})
 }
 
 router.get('/', showData);
@@ -53,5 +71,7 @@ router.get('/:sort', dataDetail);
 router.get('/editdata/:id', editData);
 
 router.post('/update', updateData);
+
+router.post('/remove', removeData);
 
 module.exports = router;
