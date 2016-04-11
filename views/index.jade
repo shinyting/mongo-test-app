@@ -4,20 +4,33 @@ block content
 	p Welcome to #{title}
 	a(href="/data") 查看数据列表
 	form
-		div.form-group
-			label(for="name") Name
-			input.form-control(type="text" id="name" placeholder="name")
-		div.form-group
-			label(for="telnumber") Telephone
-			input.form-control(type="number" id="telnumber" placeholder="telephone")
-		div.form-group
-			label(for="exampleInputEmail") Email address
-			input.form-control(type="email" id="exampleInputEmail" placeholder="Email")
-		div.form-group
-			label(for="exampleInputPassword") Password
-			input.form-control(type="password" id="exampleInputPassword" placeholder="Password")
-		div.checkbox
-			label
-				input(type="checkbox") 
-				span set default
-		button.btn.btn-default(type="button" id="save-user") Submit
+		if !data
+			div.form-group
+				label(for="name") Name
+				input.form-control(type="text" id="name" placeholder="name")
+			div.form-group
+				label(for="telnumber") Telephone
+				input.form-control(type="number" id="telnumber" placeholder="telephone")
+			div.form-group
+				label(for="exampleInputEmail") Email address
+				input.form-control(type="email" id="exampleInputEmail" placeholder="Email")
+			div.form-group
+				label(for="exampleInputPassword") Password
+				input.form-control(type="password" id="exampleInputPassword" placeholder="Password")
+			div.checkbox
+				label
+					input(type="checkbox") 
+					span set default
+			button.btn.btn-default(type="button" id="save-user") Submit
+		else
+			each item in data
+				div.form-group
+					label(for="name") Name
+					input.form-control(type="text" id="name" value="#{item.name}" data-id="#{item._id}")
+				div.form-group
+					label(for="telnumber") Telphone
+					input.form-control(type="number" id="telnumber" value="#{item.telephone}")
+				div.form-group
+					label(for="exampleInputEmail") Email address
+					input.form-control(type="email" id="exampleInputEmail" value="#{item.email}")
+				a.btn.btn-default(id="update-data") 保存
