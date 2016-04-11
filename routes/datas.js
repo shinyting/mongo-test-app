@@ -51,6 +51,7 @@ var updateData = function (req, res, next) {
 	});
 }
 
+//删除
 var removeData = function (req, res, next) {
 	console.log(req.body);
 	collection.remove({'_id': ObjectId(req.body.id)}, function (err, result) {
