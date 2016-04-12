@@ -8,6 +8,7 @@ var express = require('express');
 var router = express.Router();
 
 var showIndex = function (req, res, next) {
+	console.log(req.session);
 	res.render('index', {title: 'mongo test for save data'});
 }
 
@@ -76,6 +77,8 @@ var saveLogin = function (req, res, next) {
 								res.send({'error': 'wrong password'});
 							}
 							else {
+								var user = {'username': 'lucy', 'password': '000000'};
+								req.session.user = user;
 								res.send({'msg': 'success'});
 							}
 						}

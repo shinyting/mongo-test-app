@@ -4,6 +4,7 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon'); //网页图标模块
 var logger = require('morgan'); //在控制台中，显示req请求的信息
+var session = require('express-session');
 var cookieParser = require('cookie-parser'); //用于获取web浏览器发送的cookie中的内容
 var bodyParser = require('body-parser');//用于解析客户端请求的body中的内容
 var http = require('http'); //构建http服务器
@@ -23,6 +24,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extend: false}));
 app.use(cookieParser());
+app.use(session({
+	resave: true,
+	saveUninitialized: false,
+	secret: 'user'
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
