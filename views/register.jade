@@ -1,0 +1,17 @@
+extend layout
+block content
+	h1= title
+	form
+		div.form-group
+			label(for="nickname") name
+			input.form-control(type="text" id="nickname" placeholder="nickname")
+		div.form-group
+			label(for="tel") phone
+			input.form-control(type="text" id="tel" placeholder="phonenumber")
+		div.form-group
+			label(for="password") password
+			input.form-control(type="password" id="password" placeholder="password")
+		div.form-group
+			label(for="confirm-password") confirm password
+			input.form-control(type="password" id="confirm-password" placeholder="password again")
+		a.btn.btn-default(id="register") 注册

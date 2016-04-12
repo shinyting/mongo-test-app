@@ -1,0 +1,11 @@
+extends layout
+block content
+	h1= title
+	form
+		div.form-group
+			label(for="login-name") name/phone
+			input.form-control(type="text" id="login-name" placeholder="nickname")
+		div.form-group
+			label(for="login-password") password
+			input.form-control(type="text" id="password" placeholder="password")
+		a.btn.btn-primary(id="login") 登录
