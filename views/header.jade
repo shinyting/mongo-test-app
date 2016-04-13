@@ -1,0 +1,8 @@
+block header
+	div.row.mgt20
+		if username
+			a.col-xs-1.col-md-offset-10.text-right(href="#") #{username}
+			a.col-xs-1.text-right(href="#" id="logout") 注销
+		else
+			a.col-xs-1.col-md-offset-10.text-right(href="/login") 登录
+			a.col-xs-1.text-right(href="/register") 注册

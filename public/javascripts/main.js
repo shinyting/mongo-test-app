@@ -57,7 +57,7 @@ $(function () {
 		params.password = rpsw;
 		$.post('/saveregister', params, function (res) {
 			if (res.msg == 'success') {
-				window.location.href = '/';
+				window.location.href = '/login';
 			}
 		});
 	}
@@ -73,10 +73,18 @@ $(function () {
 		params.password = password;
 		$.post('/savelogin', params, function (res) {
 			console.log(res);
-			// if (res.msg == 'success') {
-			// 	window.location.href = '/';
-			// }
+			if (res.msg == 'success') {
+				window.location.href = '/';
+			}
 		})
+	}
+
+	function logout () {
+		$.get('/logout', function (res) {
+			if (res.msg == 'success') {
+				window.location.reload();
+			}
+		});
 	}
 
 	$('#save-user').on('click', saveUser);
@@ -87,4 +95,6 @@ $(function () {
 	$('#register').on('click', saveRegister);
 	//登录
 	$('#login').on('click', saveLogin);
+
+	$('#logout').on('click', logout);
 });

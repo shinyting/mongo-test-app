@@ -9,7 +9,15 @@ var router = express.Router();
 
 var showIndex = function (req, res, next) {
 	console.log(req.session);
-	res.render('index', {title: 'mongo test for save data'});
+	if (req.session.user) {
+		res.render('index', {
+			title: 'mongo test for save data',
+			username: req.session.user.name
+		})
+	}
+	else {
+		res.render('index', {title: 'mongo test for save data'});
+	}
 }
 
 //向数据库的user中添加一条记录
@@ -61,6 +69,7 @@ var saveLogin = function (req, res, next) {
 					res.send({'error': 'wrong password'});
 				}
 				else {
+					req.session.user = req.body;
 					res.send({'msg': 'success'});
 				}
 			}
@@ -77,8 +86,7 @@ var saveLogin = function (req, res, next) {
 								res.send({'error': 'wrong password'});
 							}
 							else {
-								var user = {'username': 'lucy', 'password': '000000'};
-								req.session.user = user;
+								req.session.user = req.body;
 								res.send({'msg': 'success'});
 							}
 						}
@@ -93,11 +101,17 @@ var saveLogin = function (req, res, next) {
 	});
 }
 
+var logout = function (req, res, next) {
+	req.session = null;
+	res.send({'msg': 'success'});
+}
+
 router.get('/', showIndex);
 router.post('/save', saveUser);
 router.get('/register', registerPage);
 router.get('/login', loginPage);
 router.post('/saveregister', saveRegister);
 router.post('/savelogin', saveLogin);
+router.get('/logout', logout);
 
 module.exports = router;

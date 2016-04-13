@@ -1,10 +1,9 @@
 extends layout
+block header
+	include header
 block content
 	h1= title
 	p Welcome to #{title}
-	div.row
-		a.col-xs-1.col-md-offset-10.text-right(href="/login") 登录
-		a.col-xs-1.text-right(href="/register") 注册
 	p
 		a(href="/data") 查看数据列表
 	form

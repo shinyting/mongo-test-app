@@ -25,9 +25,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extend: false}));
 app.use(cookieParser());
 app.use(session({
-	resave: true,
+	resave: false,
 	saveUninitialized: false,
-	secret: 'user'
+	secret: 'user',
+	name: 'mongotest',
+	cookie: {maxAge: 80000}
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
